@@ -8,6 +8,10 @@ jobs:
 
      steps:
       - checkout
+      - setup_remote_docker:
+          reusable: true
+     steps:
+      - checkout
       - run:
           name: Install dependencies
           command: |
