@@ -12,6 +12,7 @@ jobs:
           name: Install dependencies
           command: |
             curl https://raw.githubusercontent.com/helm/helm/master/scripts/get | bash
+            helm init
       - run:
           name: Build helm artifacts
           command: |
