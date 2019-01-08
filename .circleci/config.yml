@@ -3,20 +3,20 @@ jobs:
   build:
     docker:
       - image: circleci/ruby:2.4.1-node-browsers
-     steps:
-      - checkout
-      - run:
-          name: Install dependencies
-          command: |
-            curl https://raw.githubusercontent.com/helm/helm/master/scripts/get | bash
-       - run:
-          name: Build helm artifacts
-          command: |
-            helm package helm-chart/splunk-connect-for-kubernetes
-            helm package helm-chart/splunk-kubernetes-logging
-            helm package helm-chart/splunk-kubernetes-metrics
-            helm package helm-chart/splunk-kubernetes-objects
-       - run:
-          name: Push helm artifacts to s3
-          command: |
-            .circleci/push_helm_artifacts.sh
+        steps:
+          - checkout
+          - run:
+              name: Install dependencies
+              command: |
+                curl https://raw.githubusercontent.com/helm/helm/master/scripts/get | bash
+          - run:
+              name: Build helm artifacts
+              command: |
+                helm package helm-chart/splunk-connect-for-kubernetes
+                helm package helm-chart/splunk-kubernetes-logging
+                helm package helm-chart/splunk-kubernetes-metrics
+                helm package helm-chart/splunk-kubernetes-objects
+          - run:
+              name: Push helm artifacts to s3
+              command: |
+                .circleci/push_helm_artifacts.sh
