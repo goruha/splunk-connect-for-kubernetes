@@ -20,6 +20,6 @@ jobs:
             helm package helm-chart/splunk-kubernetes-metrics
             helm package helm-chart/splunk-kubernetes-objects
       - run:
-        name: Push helm artifacts to s3
-        command: |
-          .circleci/push_helm_artifacts.sh
+          name: Push helm artifacts to s3
+          command: |
+            .circleci/push_helm_artifacts.sh
